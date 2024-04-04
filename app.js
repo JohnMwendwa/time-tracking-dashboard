@@ -18,6 +18,7 @@ const updateUI = async (idx) => {
   const data = await fetchData();
   if (!data) return;
 
+  // Get the selected period
   let period;
   let timeOfPeriod;
   switch (idx) {
@@ -43,11 +44,16 @@ const updateUI = async (idx) => {
 
   // Update the current time
   for (let i = 0; i < data.length; i++) {
-    currentTime[i].textContent = `${data[i].timeframes[period].current}hrs`;
+    let currHrs = data[i].timeframes[period].current === 1 ? "hr" : "hrs";
+    let prevHrs = data[i].timeframes[period].previous === 1 ? "hr" : "hrs";
+
+    currentTime[
+      i
+    ].textContent = `${data[i].timeframes[period].current}${currHrs}`;
 
     previousTime[
       i
-    ].textContent = `Last ${timeOfPeriod} - ${data[i].timeframes[period].previous} hrs`;
+    ].textContent = `Last ${timeOfPeriod} - ${data[i].timeframes[period].previous}${prevHrs}`;
   }
 };
 
