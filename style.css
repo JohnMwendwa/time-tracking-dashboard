@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-blue: hsl(246, 80%, 60%);
+  --light-red-work: hsl(15, 100%, 70%);
+  --soft-blue: hsl(195, 74%, 62%);
+  --light-red-study: hsl(348, 100%, 68%);
+  --lime-green: hsl(145, 58%, 55%);
+  --violet: hsl(264, 64%, 52%);
+  --soft-orange: hsl(43, 84%, 65%);
+
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --card-hover: hsl(235, 45%, 36%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.125rem;
+  background-color: var(--very-dark-blue);
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(160px, auto);
+  gap: 2rem;
+  max-width: 1440px;
+  padding: 4rem 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(0, 260px));
+  }
+}
+
+.card {
+  background-color: var(--dark-blue);
+  border-radius: 1rem;
+  display: grid;
+  gap: 1rem;
+  width: 90vw;
+}
+
+/* USER CARD */
+
+.card__user {
+  grid-column: 1 / 2;
+}
+
+@media screen and (min-width: 640px) {
+  .card {
+    width: 100%;
+  }
+
+  .card__user {
+    grid-column: 1 / 2;
+    grid-row: 1/3;
+  }
+}
+
+.card__user .user__details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--primary-blue);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.card__user img {
+  width: 65px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.card__user p {
+  color: var(--pale-blue);
+  font-size: 1rem;
+}
+
+.card__user h1 {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.card__user ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0.5rem 2rem;
+}
+
+.card__user ul li {
+  color: var(--desaturated-blue);
+  font-size: 1.15rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.card__user ul li:hover {
+  color: #fff;
+}
+
+.card__user ul li.active {
+  color: #fff;
+}
+
+@media screen and (min-width: 640px) {
+  .card__user .user__details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 2rem 5rem;
+  }
+
+  .card__user img {
+    width: 80px;
+  }
+
+  .card__user h1 {
+    font-size: 2.5rem;
+  }
+
+  .card__user ul {
+    flex-direction: column;
+  }
+}
+
+/* ACTIVITY CARDS */
+.card__activity {
+  display: flex;
+  align-items: flex-end;
+  background-repeat: no-repeat;
+  background-position: 90% -10%;
+  border-radius: 1rem 1rem 1.25rem 1.25rem;
+  width: 100%;
+}
+
+.card__details {
+  background-color: var(--dark-blue);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  height: 80%;
+}
+
+@media screen and (min-width: 640px) {
+  .card__details {
+    height: 85%;
+  }
+}
+
+.card__details:hover {
+  background-color: var(--card-hover);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.card__header h2 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  letter-spacing: 0.02rem;
+}
+
+.card__header svg path {
+  transition: all 0.3s ease-in-out;
+}
+
+.card__header svg:hover path {
+  fill: #fff;
+}
+
+.card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__content h2 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+@media screen and (min-width: 640px) {
+  .card__header {
+    margin-bottom: 1.5rem;
+  }
+
+  .card__header h2 {
+    font-size: 1.25rem;
+  }
+
+  .card__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card__content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.card__content h3 {
+  color: var(--pale-blue);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.card__activity:nth-child(2) {
+  background-color: var(--light-red-work);
+  background-image: url(images/icon-work.svg);
+}
+
+.card__activity:nth-child(3) {
+  background-color: var(--pale-blue);
+  background-image: url(images/icon-play.svg);
+}
+
+.card__activity:nth-child(4) {
+  background-color: var(--light-red-study);
+  background-image: url(images/icon-study.svg);
+}
+
+.card__activity:nth-child(5) {
+  background-color: var(--lime-green);
+  background-image: url(images/icon-exercise.svg);
+}
+
+.card__activity:nth-child(6) {
+  background-color: var(--violet);
+  background-image: url(images/icon-social.svg);
+}
+
+.card__activity:nth-child(7) {
+  background-color: var(--soft-orange);
+  background-image: url(images/icon-self-care.svg);
+}
